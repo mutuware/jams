@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="SpawnSpeed" sid="283955456402321" static="0" type="number">1</variable>
+        <event-block disabled="1" sid="292128898000896">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="745517609285273" type="Player">
+                    <param id="0" name="Object">EnemyB</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="859187047948831" type="Function">
+                    <param id="0" name="Name">&quot;Death&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="156020375344078">
+            <conditions>
+                <condition id="-4" name="Is outside layout" sid="766495657640299" type="Player" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="575551038646070" type="Function">
+                    <param id="0" name="Name">&quot;Death&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="766006468804832">
+            <conditions>
+                <condition id="0" name="On function" sid="532030635152626" type="Function">
+                    <param id="0" name="Name">&quot;Death&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="11" name="Set enabled" sid="653175249978796" type="Player">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="973586685703723" type="System">
+                    <param id="0" name="Time scale">0.05</param>
+                </action>
+                <action id="-16" name="Wait" sid="855438708252874" type="System">
+                    <param id="0" name="Seconds">0.05</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="210547501966960" type="System">
+                    <param id="0" name="Time scale">1.0</param>
+                </action>
+                <action id="-26" name="Restart layout" sid="774960759748795" type="System" />
+                <action behavior="Platform" id="11" name="Set enabled" sid="933625575557373" type="Player">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="669841745323598">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="162471451379653" type="System">
+                    <param id="0" name="Interval (seconds)">2</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="800206153760059" type="System">
+                    <param id="0" name="Variable">SpawnSpeed</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0.01</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="774321132034476" type="System">
+                    <param id="0" name="Variable">SpawnSpeed</param>
+                    <param id="1" name="Value">-0.1</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="281130763952171" type="Spawner">
+                    <param id="0" name="Object">Enemy</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="296659032581569">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="168556826647429" type="System">
+                    <param id="0" name="Interval (seconds)">SpawnSpeed+random(0.5)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="227242848344466" type="Enemy">
+                    <param id="0" name="Object">EnemyB</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action id="-7" name="Set size" sid="370924798623827" type="EnemyB">
+                    <param id="0" name="Width">EnemyB.Width/2</param>
+                    <param id="1" name="Height">EnemyB.Height/2</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="356632313018618" type="EnemyB">
+                    <param id="0" name="Degrees">1</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="694608535507159" type="EnemyB">
+                    <param id="0" name="Angle">EnemyB.Angle</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="640279693936482" type="EnemyB">
+                    <param id="0" name="Angle">265 + random(10)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="743277562987174">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="102015388508851" type="Player">
+                    <param id="0" name="Object">Goal</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="964220624417476" type="txtWin">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="493780429410789" type="System">
+                    <param id="0" name="Time scale">0.05</param>
+                </action>
+                <action id="-16" name="Wait" sid="607736477497225" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="234968728201548" type="System">
+                    <param id="0" name="Time scale">1.0</param>
+                </action>
+                <action id="-26" name="Restart layout" sid="455232097534179" type="System" />
+                <action behavior="Platform" id="11" name="Set enabled" sid="177745105162422" type="Player">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="307605803506489">
+            <conditions>
+                <condition id="2" name="Key is down" sid="626434260191793" type="Keyboard">
+                    <param id="0" name="Key">40</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-6" name="Set height" sid="211591293271503" type="Player">
+                    <param id="0" name="Height">32</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="384203824136559">
+            <conditions>
+                <condition id="2" inverted="1" name="Key is down" sid="972662330990149" type="Keyboard">
+                    <param id="0" name="Key">40</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-6" name="Set height" sid="629996604207435" type="Player">
+                    <param id="0" name="Height">64</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
